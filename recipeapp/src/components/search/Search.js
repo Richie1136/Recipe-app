@@ -5,7 +5,7 @@ const Search = () => {
     <div className='search'>
       <input type='text' placeholder='Search an Item' />
       <div className='search-logo'>
-        <i className='fas fa-search' />
+        <i class="fa-solid fa-magnifying-glass"></i>
       </div>
     </div>
   )
