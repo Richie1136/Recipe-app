@@ -20,25 +20,27 @@ const Row = ({ title }) => {
 
   return (
     <div className='row'>
-      {recipe.map((rec) => {
-        return (
-          <Wrapper>
-            <h3>Trending</h3>
-            <Splide>
-              {recipe.map((rec) => {
-                return (
-                  <SplideSlide>
-                    <Card>
-                      <p>{rec.title}</p>
-                      <img src={rec.image} alt={rec.title} />
-                    </Card>
-                  </SplideSlide>
-                )
-              })}
-            </Splide>
-          </Wrapper>
-        )
-      })}
+      <Wrapper>
+        <h3>Trending</h3>
+        <Splide options={{
+          perPage: 4,
+          arrows: false,
+          pagination: false,
+          drag: 'free',
+          gap: '5rem'
+        }}>
+          {recipe.map((rec) => {
+            return (
+              <SplideSlide>
+                <Card>
+                  <p>{rec.title}</p>
+                  <img src={rec.image} alt={rec.title} />
+                </Card>
+              </SplideSlide>
+            )
+          })}
+        </Splide>
+      </Wrapper>
     </div>
   )
 }
