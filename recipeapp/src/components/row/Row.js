@@ -27,7 +27,7 @@ const Row = ({ title }) => {
               return (
                 <Card>
                   <p>{rec.title}</p>
-                  <img src={rec.image} alt='' />
+                  <img src={rec.image} alt={rec.title} />
                 </Card>
               )
             })}
@@ -39,12 +39,17 @@ const Row = ({ title }) => {
 }
 
 const Wrapper = styled.div`
-margin: 4rem 0rem
-`
+margin: 4rem 0rem;
+`;
 
 const Card = styled.div`
-min-height: 25rem
-border-rqdius: 2rem
-`
+min-height: 25rem;
+border-radius: 2rem;
+overflow: hidden;
+
+img {
+  border-radius: 2rem;
+}
+`;
 
 export default Row
