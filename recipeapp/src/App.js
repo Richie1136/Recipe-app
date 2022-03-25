@@ -7,8 +7,7 @@ function App() {
     <div className="App">
       <h2>Recipe Application</h2>
       <Search />
-      <Row title='Our Vegetarian Picks' />
-      {/* <Row title='Trending' /> */}
+      <Row />
     </div>
   );
 }

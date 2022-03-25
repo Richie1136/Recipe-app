@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components'
+import { Splide, SplideSlide } from '@splidejs/react-splide'
+import '@splidejs/splide/dist/css/splide.min.css'
 
 const Row = ({ title }) => {
   const [recipe, setRecipe] = useState([])
@@ -8,7 +10,6 @@ const Row = ({ title }) => {
   const searchRandom = useCallback(async () => {
     const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${KEY}&number=5`)
     const data = await api.json()
-    console.log(data)
     setRecipe(data.recipes)
   }, [KEY])
 
@@ -23,14 +24,18 @@ const Row = ({ title }) => {
         return (
           <Wrapper>
             <h3>Trending</h3>
-            {recipe.map((rec) => {
-              return (
-                <Card>
-                  <p>{rec.title}</p>
-                  <img src={rec.image} alt={rec.title} />
-                </Card>
-              )
-            })}
+            <Splide>
+              {recipe.map((rec) => {
+                return (
+                  <SplideSlide>
+                    <Card>
+                      <p>{rec.title}</p>
+                      <img src={rec.image} alt={rec.title} />
+                    </Card>
+                  </SplideSlide>
+                )
+              })}
+            </Splide>
           </Wrapper>
         )
       })}
