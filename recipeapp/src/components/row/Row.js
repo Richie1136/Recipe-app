@@ -18,9 +18,7 @@ const Row = ({ title }) => {
       const data = await api.json()
       localStorage.setItem('random', JSON.stringify(data.recipes))
       setRecipe(data.recipes)
-
     }
-
   }, [KEY])
 
   useEffect(() => {
