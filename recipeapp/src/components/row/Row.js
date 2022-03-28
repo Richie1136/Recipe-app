@@ -8,9 +8,19 @@ const Row = ({ title }) => {
   const KEY = process.env.REACT_APP_FOOD_API_KEY
 
   const searchRandom = useCallback(async () => {
-    const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${KEY}&number=5`)
-    const data = await api.json()
-    setRecipe(data.recipes)
+
+    const check = localStorage.getItem('random')
+
+    if (check) {
+      setRecipe(JSON.parse(check))
+    } else {
+      const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${KEY}&number=5`)
+      const data = await api.json()
+      localStorage.setItem('random', JSON.stringify(data.recipes))
+      setRecipe(data.recipes)
+
+    }
+
   }, [KEY])
 
   useEffect(() => {
@@ -23,7 +33,7 @@ const Row = ({ title }) => {
       <Wrapper>
         <h3>Trending</h3>
         <Splide options={{
-          perPage: 4,
+          perPage: 5,
           arrows: false,
           pagination: false,
           drag: 'free',
@@ -33,7 +43,7 @@ const Row = ({ title }) => {
             return (
               <SplideSlide key={rec.id}>
                 <Card>
-                  <p style={{ 'textAlign': 'center' }}>{rec.title}</p>
+                  <p style={{ 'textAlign': 'center', 'marginBottom': '15px' }}>{rec.title}</p>
                   <img src={rec.image} alt={rec.title} />
                 </Card>
               </SplideSlide>
