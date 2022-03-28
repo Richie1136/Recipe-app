@@ -31,9 +31,9 @@ const Row = ({ title }) => {
         }}>
           {recipe.map((rec) => {
             return (
-              <SplideSlide>
+              <SplideSlide key={rec.id}>
                 <Card>
-                  <p>{rec.title}</p>
+                  <p style={{ 'textAlign': 'center' }}>{rec.title}</p>
                   <img src={rec.image} alt={rec.title} />
                 </Card>
               </SplideSlide>
