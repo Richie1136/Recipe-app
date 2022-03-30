@@ -6,3 +6,9 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
+
+h3 {
+  font-size: 30px;
+  line-height: 40px;
+  margin: 32px 0px;
+}

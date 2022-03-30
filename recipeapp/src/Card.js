@@ -2,12 +2,12 @@ import styled from 'styled-components'
 
 
 export const Card = styled.div`
-min-height: 25rem;
-border-radius: 2rem;
+min-height: 400px;
+border-radius: 32px;
 overflow: hidden;
 
 img {
-  border-radius: 2rem;
+  border-radius: 32px;
   position: absoulte;
   left: 0;
   width: 100%;

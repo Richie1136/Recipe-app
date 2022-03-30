@@ -6,7 +6,6 @@ import Veggie from './components/veggie/Veggie';
 function App() {
   return (
     <div className="App">
-      <h2>Recipe Application</h2>
       <Search />
       <Trending />
       <Veggie />
