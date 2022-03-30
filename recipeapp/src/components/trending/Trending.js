@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
-import styled from 'styled-components'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/splide/dist/css/splide.min.css'
+import { Wrapper } from '../../Wrapper'
+import { Gradient } from '../../Graident'
+import { Card } from '../../Card'
 
 const Row = ({ title }) => {
   const [recipe, setRecipe] = useState([])
@@ -41,8 +43,9 @@ const Row = ({ title }) => {
             return (
               <SplideSlide key={rec.id}>
                 <Card>
-                  <p style={{ 'textAlign': 'center', 'marginBottom': '15px' }}>{rec.title}</p>
+                  <p>{rec.title}</p>
                   <img src={rec.image} alt={rec.title} />
+                  <Gradient />
                 </Card>
               </SplideSlide>
             )
@@ -52,19 +55,5 @@ const Row = ({ title }) => {
     </div>
   )
 }
-
-const Wrapper = styled.div`
-margin: 4rem 0rem;
-`;
-
-const Card = styled.div`
-min-height: 25rem;
-border-radius: 2rem;
-overflow: hidden;
-
-img {
-  border-radius: 2rem;
-}
-`;
 
 export default Row

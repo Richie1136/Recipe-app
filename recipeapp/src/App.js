@@ -1,5 +1,5 @@
 import './App.css';
-import Row from './components/row/Row';
+import Trending from './components/trending/Trending'
 import Search from './components/search/Search';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <h2>Recipe Application</h2>
       <Search />
-      <Row />
+      <Trending />
     </div>
   );
 }
