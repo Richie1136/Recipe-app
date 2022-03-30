@@ -1,14 +1,37 @@
+import { useState, useEffect, useCallback } from 'react'
 import { Wrapper } from '../../Wrapper'
 import { Gradient } from '../../Graident'
 import { Card } from '../../Card'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/splide/dist/css/splide.min.css'
 
-const Veggie = ({ recipe }) => {
+const Veggie = () => {
+
+  const [veggie, setVeggie] = useState([])
+  const KEY = process.env.REACT_APP_FOOD_API_KEY
+
+  const getVeggie = useCallback(async () => {
+
+    const check = localStorage.getItem('veggie')
+
+    if (check) {
+      setVeggie(JSON.parse(check))
+    } else {
+      const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${KEY}&number=5&tags=vegetarian`)
+      const data = await api.json()
+      localStorage.setItem('veggie', JSON.stringify(data.recipes))
+      setVeggie(data.recipes)
+    }
+  }, [KEY])
+
+  useEffect(() => {
+    getVeggie()
+  }, [getVeggie])
+
   return (
     <div className='row'>
       <Wrapper>
-        <h3>Trending</h3>
+        <h3>Veggie Picks</h3>
         <Splide options={{
           perPage: 5,
           arrows: false,
@@ -16,7 +39,7 @@ const Veggie = ({ recipe }) => {
           drag: 'free',
           gap: '5rem'
         }}>
-          {recipe.map((rec) => {
+          {veggie.map((rec) => {
             return (
               <SplideSlide key={rec.id}>
                 <Card>
