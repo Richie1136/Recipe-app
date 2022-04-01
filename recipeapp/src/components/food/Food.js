@@ -1,27 +1,28 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect, useCallback } from 'react'
 
-const Italian = () => {
+const Food = () => {
+  const [food, setFood] = useState([])
 
-  const [italian, setItalian] = useState([])
+  let params = useParams()
 
   const KEY = process.env.REACT_APP_FOOD_API_KEY
 
-  const getItalian = useCallback(async () => {
+  const getFood = useCallback(async (name) => {
 
-    const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${KEY}&number=5&tags=italian`)
+    const api = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY}&cuisine=${name}`)
     const data = await api.json()
-    setItalian(data.recipes)
+    setFood(data.results)
   }, [KEY])
 
   useEffect(() => {
-    getItalian()
-  }, [getItalian])
+    getFood(params.type)
+  }, [getFood, params.type])
   return (
     <Grid>
-      {italian.map((item) => {
+      {food.map((item) => {
         return (
           <Card key={item.id}>
             <h4>{item.title}</h4>
@@ -53,4 +54,4 @@ h4 {
 }
 `
 
-export default Italian
+export default Food

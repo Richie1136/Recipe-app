@@ -8,19 +8,19 @@ const Categories = () => {
   return (
     <>
       <List>
-        <NavLink to={'/Italian'}>
+        <NavLink to={'/food/Italian'}>
           <FaPizzaSlice />
           <h4>Italian</h4>
         </NavLink>
-        <NavLink to={'/American'}>
+        <NavLink to={'/food/American'}>
           <FaHamburger />
           <h4>American</h4>
         </NavLink>
-        <NavLink to={'/Thai'}>
+        <NavLink to={'/food/Thai'}>
           <GiNoodles />
           <h4>Thai</h4>
         </NavLink>
-        <NavLink to={'/Japanese'}>
+        <NavLink to={'/food/Japanese'}>
           <GiChopsticks />
           <h4>Japanese</h4>
         </NavLink>
@@ -30,3 +30,5 @@ const Categories = () => {
 }
 
 export default Categories
+
+  // / food /: type
