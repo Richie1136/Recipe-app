@@ -56,6 +56,10 @@ svg {
   font-size: 24px;
 }
 
+&.active {
+  background: linear-gradient(to right, #f27121, #e94057)
+}
+
 `
 
 export default Categories
