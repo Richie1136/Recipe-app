@@ -9,23 +9,23 @@ const Categories = () => {
     <>
       <List>
         <StyleLink to='/'>
-          <h4 style={{ 'marginRight': '10px', 'marginTop': '15px' }}>Home</h4>
+          <h4 style={{ 'marginTop': '15px' }}>Home</h4>
         </StyleLink>
         <StyleLink to={'/food/Italian'}>
           <FaPizzaSlice />
-          <h4 style={{ 'marginRight': '10px' }}>Italian</h4>
+          <h4>Italian</h4>
         </StyleLink>
         <StyleLink to={'/food/American'}>
           <FaHamburger />
-          <h4 style={{ 'marginRight': '10px' }}>American</h4>
+          <h4>American</h4>
         </StyleLink>
         <StyleLink to={'/food/Thai'}>
           <GiNoodles />
-          <h4 style={{ 'marginRight': '10px' }}>Thai</h4>
+          <h4>Thai</h4>
         </StyleLink>
         <StyleLink to={'/food/Japanese'}>
           <GiChopsticks />
-          <h4 style={{ 'marginRight': '10px' }}>Japanese</h4>
+          <h4>Japanese</h4>
         </StyleLink>
       </List>
     </>
@@ -37,7 +37,25 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-border-radius: 50%
+border-radius: 50%;
+margin-right: 32px;
+text-decoration: none;
+background: linear-gradient(35deg, #494949, #313131);
+width: 96px;
+height: 96px;
+cursor: pointer;
+transform: scale(0.8);
+
+h4 {
+  color: white;
+  font-size: 14px;
+}
+
+svg {
+  color: white;
+  font-size: 24px;
+}
+
 `
 
 export default Categories
