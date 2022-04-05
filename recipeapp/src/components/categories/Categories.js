@@ -1,5 +1,6 @@
 import { FaPizzaSlice, FaHamburger } from 'react-icons/fa'
 import { GiNoodles, GiChopsticks } from 'react-icons/gi'
+import { AiFillHome } from 'react-icons/ai'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { List } from '../../List'
@@ -9,7 +10,8 @@ const Categories = () => {
     <>
       <List>
         <StyleLink to='/'>
-          <h4 style={{ 'marginTop': '15px' }}>Home</h4>
+          <AiFillHome />
+          <h4>Home</h4>
         </StyleLink>
         <StyleLink to={'/food/Italian'}>
           <FaPizzaSlice />
@@ -49,6 +51,7 @@ transform: scale(0.8);
 h4 {
   color: white;
   font-size: 14px;
+  margin-top: 5px;
 }
 
 svg {
