@@ -4,6 +4,7 @@ import '@splidejs/splide/dist/css/splide.min.css'
 import { Wrapper } from '../../Wrapper'
 import { Gradient } from '../../Graident'
 import { Card } from '../../Card'
+import { Link } from 'react-router-dom'
 
 const Row = ({ title }) => {
   const [recipe, setRecipe] = useState([])
@@ -43,9 +44,11 @@ const Row = ({ title }) => {
             return (
               <SplideSlide key={rec.id}>
                 <Card>
-                  <p>{rec.title}</p>
-                  <img src={rec.image} alt={rec.title} />
-                  <Gradient />
+                  <Link to={`/recipe/${rec.id}`}>
+                    <p>{rec.title}</p>
+                    <img src={rec.image} alt={rec.title} />
+                    <Gradient />
+                  </Link>
                 </Card>
               </SplideSlide>
             )

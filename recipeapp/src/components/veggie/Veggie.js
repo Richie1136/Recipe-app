@@ -4,6 +4,7 @@ import { Gradient } from '../../Graident'
 import { Card } from '../../Card'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/splide/dist/css/splide.min.css'
+import { Link } from 'react-router-dom'
 
 const Veggie = () => {
 
@@ -43,9 +44,11 @@ const Veggie = () => {
             return (
               <SplideSlide key={rec.id}>
                 <Card>
-                  <p>{rec.title}</p>
-                  <img src={rec.image} alt={rec.title} />
-                  <Gradient />
+                  <Link to={`/recipe/${rec.id}`}>
+                    <p>{rec.title}</p>
+                    <img src={rec.image} alt={rec.title} />
+                    <Gradient />
+                  </Link>
                 </Card>
               </SplideSlide>
             )
