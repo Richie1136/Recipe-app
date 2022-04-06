@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 
 const Searched = () => {
@@ -25,8 +26,10 @@ const Searched = () => {
       {getSearched.map((search) => {
         return (
           <Card key={search.id}>
-            <h4>{search.title}</h4>
-            <img src={search.image} alt={search.title} />
+            <Link to={`/recipe/${search.id}`}>
+              <h4>{search.title}</h4>
+              <img src={search.image} alt={search.title} />
+            </Link>
           </Card>
         )
       })}
