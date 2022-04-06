@@ -17,6 +17,7 @@ const Search = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     navigate('/searched/' + input)
+    setInput("")
   }
 
   return (
