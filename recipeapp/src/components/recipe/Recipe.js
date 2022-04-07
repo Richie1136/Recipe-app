@@ -36,11 +36,22 @@ const Recipe = () => {
       <Info>
         <Button className={activeTab === 'instructions' ? 'active' : ''} onClick={() => setActiveTab('instructions')}>Instructions</Button>
         <Button className={activeTab === 'ingredients' ? 'active' : ''} onClick={() => setActiveTab('ingredients')}>Ingredients</Button>
+        {activeTab === 'instructions' && (
+          <div>
+            <h3 dangerouslySetInnerHTML={{ __html: recipeDetails.summary }}></h3>
+            <h3 dangerouslySetInnerHTML={{ __html: recipeDetails.instructions }} style={{ 'width': '50%', 'marginTop': '15px' }}></h3>
+          </div>
+        )}
+        {activeTab === 'ingredients' && (
+          <ul>
+            {recipeDetails.extendedIngredients.map((ingredient) => {
+              return (
+                <li key={ingredient.id}>{ingredient.original}</li>
+              )
+            })}
+          </ul>
+        )}
       </Info>
-      {/* <p style={{ 'width': '50%', 'marginTop': '15px' }}>{recipeDetails.instructions}</p> */}
-      <div>
-        <h3 dangerouslySetInnerHTML={{ __html: recipeDetails.summary }}></h3>
-      </div>
     </DetailWrapper>
   )
 }
