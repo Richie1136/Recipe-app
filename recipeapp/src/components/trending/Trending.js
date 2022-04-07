@@ -38,7 +38,7 @@ const Row = ({ title }) => {
           arrows: false,
           pagination: false,
           drag: 'free',
-          gap: '5rem'
+          gap: '80px'
         }}>
           {recipe.map((rec) => {
             return (

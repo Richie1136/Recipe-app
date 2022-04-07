@@ -38,7 +38,7 @@ const Veggie = () => {
           arrows: false,
           pagination: false,
           drag: 'free',
-          gap: '5rem'
+          gap: '80px'
         }}>
           {veggie.map((rec) => {
             return (
