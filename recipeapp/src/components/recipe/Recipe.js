@@ -17,11 +17,14 @@ const Recipe = () => {
     const api = await fetch(`https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${KEY}`)
     const data = await api.json()
     setRecipeDetails(data)
+    console.log(data)
   }, [KEY, params.id])
+
 
   useEffect(() => {
     getDetails(params.id)
   }, [getDetails, params.id])
+
 
 
   return (
@@ -34,7 +37,10 @@ const Recipe = () => {
         <Button className={activeTab === 'instructions' ? 'active' : ''} onClick={() => setActiveTab('instructions')}>Instructions</Button>
         <Button className={activeTab === 'ingredients' ? 'active' : ''} onClick={() => setActiveTab('ingredients')}>Ingredients</Button>
       </Info>
-      <p style={{ 'width': '50%', 'marginTop': '15px' }}>{recipeDetails.instructions}</p>
+      {/* <p style={{ 'width': '50%', 'marginTop': '15px' }}>{recipeDetails.instructions}</p> */}
+      <div>
+        <h3 dangerouslySetInnerHTML={{ __html: recipeDetails.summary }}></h3>
+      </div>
     </DetailWrapper>
   )
 }
