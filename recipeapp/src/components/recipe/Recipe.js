@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
-import styled from 'styled-components'
 import { DetailWrapper } from '../../DetailWrapper'
 import { Button } from '../../Button'
 import { Info } from '../../Info'

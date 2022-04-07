@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect, useCallback } from 'react'
+import { CardWrapper } from '../../CardWrapper'
+import { Grid } from '../../Grid'
 
 const Food = () => {
   const [food, setFood] = useState([])
@@ -24,36 +26,16 @@ const Food = () => {
     <Grid>
       {food.map((item) => {
         return (
-          <Card key={item.id}>
+          <CardWrapper key={item.id}>
             <Link to={`/recipe/${item.id}`}>
               <h4>{item.title}</h4>
               <img src={item.image} alt={item.title} />
             </Link>
-          </Card>
+          </CardWrapper>
         )
       })}
     </Grid>
   )
 }
-
-const Grid = styled.div`
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-grid-gap: 3rem;
-`
-
-const Card = styled.div`
-img {
-  border-radius: 32px;
-  width: 100%;
-}
-a {
-  text-decoration: none;
-}
-h4 {
-  text-align: center;
-  padding: 16px;
-}
-`
 
 export default Food
