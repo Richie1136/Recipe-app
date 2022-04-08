@@ -1,5 +1,3 @@
-import styled from 'styled-components'
-import { motion } from 'framer-motion'
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect, useCallback } from 'react'
 import { CardWrapper } from '../../CardWrapper'
@@ -23,7 +21,7 @@ const Food = () => {
     getFood(params.type)
   }, [getFood, params.type])
   return (
-    <Grid>
+    <Grid animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
       {food.map((item) => {
         return (
           <CardWrapper key={item.id}>

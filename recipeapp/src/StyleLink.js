@@ -27,7 +27,7 @@ svg {
 }
 
 &.active {
-  background: linear-gradient(to right, #f27121, #e94057)
+  background: linear-gradient(to right, #f27121, #e94057);
 
   svg {
     color: white;
