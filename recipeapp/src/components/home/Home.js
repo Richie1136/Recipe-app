@@ -1,4 +1,3 @@
-import React from 'react'
 import Trending from '../trending/Trending'
 import Veggie from '../veggie/Veggie'
 import { motion } from 'framer-motion'
