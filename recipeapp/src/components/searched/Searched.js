@@ -14,6 +14,7 @@ const Searched = () => {
 
   const getSearchedItem = useCallback(async (name) => {
     const api = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY}&query=${name}`)
+    console.log(api)
     const data = await api.json()
     setGetSearched(data.results)
   }, [KEY])
@@ -24,7 +25,8 @@ const Searched = () => {
 
   return (
     <Grid>
-      {getSearched.map((search) => {
+      {console.log(getSearched)}
+      {getSearched?.map((search) => {
         return (
           <CardWrapper key={search.id}>
             <Link to={`/recipe/${search.id}`}>

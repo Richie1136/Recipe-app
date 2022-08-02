@@ -17,6 +17,7 @@ const Recipe = () => {
 
   const getDetails = useCallback(async () => {
     const api = await fetch(`https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${KEY}`)
+    console.log(api)
     const data = await api.json()
     setRecipeDetails(data)
   }, [KEY, params.id])
@@ -45,7 +46,7 @@ const Recipe = () => {
         )}
         {activeTab === 'ingredients' && (
           <ul>
-            {recipeDetails.extendedIngredients.map((ingredient) => {
+            {recipeDetails?.extendedIngredients.map((ingredient) => {
               return (
                 <li key={ingredient.id}>{ingredient.original}</li>
               )

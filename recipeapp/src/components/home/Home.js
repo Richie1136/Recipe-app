@@ -6,8 +6,9 @@ const Home = () => {
   return (
     <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
       <Trending />
+      <h2>Hello</h2>
       <Veggie />
-    </motion.div>
+    </motion.div >
   )
 }
 

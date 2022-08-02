@@ -40,7 +40,7 @@ const Row = ({ title }) => {
           drag: 'free',
           gap: '80px'
         }}>
-          {recipe.map((rec) => {
+          {recipe?.map((rec) => {
             return (
               <SplideSlide key={rec.id}>
                 <Card>
