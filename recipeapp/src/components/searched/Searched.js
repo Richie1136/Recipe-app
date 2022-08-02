@@ -14,7 +14,6 @@ const Searched = () => {
 
   const getSearchedItem = useCallback(async (name) => {
     const api = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY}&query=${name}`)
-    console.log(api)
     const data = await api.json()
     setGetSearched(data.results)
   }, [KEY])

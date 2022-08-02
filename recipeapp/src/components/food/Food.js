@@ -9,12 +9,10 @@ const Food = () => {
   let params = useParams()
 
   const KEY = process.env.REACT_APP_FOOD_API_KEY
-  console.log(KEY)
 
   const getFood = useCallback(async (name) => {
 
     const api = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY}&cuisine=${name}`)
-    console.log(api)
     const data = await api.json()
     setFood(data.results)
   }, [KEY])

@@ -17,7 +17,6 @@ const Recipe = () => {
 
   const getDetails = useCallback(async () => {
     const api = await fetch(`https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${KEY}`)
-    console.log(api)
     const data = await api.json()
     setRecipeDetails(data)
   }, [KEY, params.id])
